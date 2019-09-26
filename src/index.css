@@ -11,3 +11,69 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.header h1{
+  font-size: 4em;
+  letter-spacing: -1px;
+  font-size: 39px;
+  margin-top: 21px;
+  margin-bottom: 10.5px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.1;
+  color: inherit;
+  text-align: center;
+}
+
+#search_movie{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+#search_movie input{
+  margin-left: 10px;
+  width: 300px;
+}
+
+#search_movie button{
+  margin-left: 10px;
+}
+
+.list_movies .list{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.list_movies .list .movie{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 25%;
+}
+
+.list_movies .list .movie img{
+  width: 100%;
+}
+
+.list_movies .list .movie .movie_info{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid #c3c3c3;
+  width: calc(100% - 2px);
+  padding: 10px 0;
+}
+
+.list_movies .list .movie .movie_info span{
+  font-family: 'Open Sans', sans-serif;
+  color: #483e3e;
+  display: block;
+  margin: 5px 0;
+  padding-left: 15px;
+}
