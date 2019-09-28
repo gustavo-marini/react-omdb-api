@@ -54,11 +54,30 @@ code {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 25%;
+  width: 21%;
+  position: relative;
+}
+
+.list_movies .list .movie:hover svg{
+  opacity: 1;
+  visibility: visible;
+}
+
+.list_movies .list .movie svg{
+  position: absolute;
+  color: red;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s all ease-in-out;
+  right: 10px;
+  top: 10px;
+  font-size: 25px;
 }
 
 .list_movies .list .movie img{
   width: 100%;
+  object-fit: cover;
 }
 
 .list_movies .list .movie .movie_info{
@@ -76,4 +95,31 @@ code {
   display: block;
   margin: 5px 0;
   padding-left: 15px;
+}
+
+.favorites_menu{
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  cursor: pointer;
+}
+
+.favorites_menu a{
+  display: flex;
+  align-items: center;
+  color: #3c2424;
+  text-decoration: none;
+}
+
+.favorites_menu svg{
+  color: red;
+  font-size: 16px;
+}
+
+.favorites_menu span{
+  font-size: 16px;
+  display: block;
+  padding-left: 7px;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
 }
