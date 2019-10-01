@@ -12,6 +12,16 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
+  useEffect(() => {
+    var tmp = localStorage.getItem("favorites");
+    if(tmp) {
+      var fav = tmp.split(",");
+      setFavorites(fav);
+    } else {
+      setFavorites([]);
+    }
+  }, []);
+
   const handleFormSubmit = (e) => {
     if (e.key === 'Enter') {
       var movie_name = e.target.value;
@@ -29,20 +39,36 @@ function App() {
   }
 
   const favoriteMovie = (e) => {
-	  var id = ReactDOM.findDOMNode(e.target).parentNode.parentNode.id;
-		
+    var id = ReactDOM.findDOMNode(e.target).parentNode.parentNode.id;
+		if(id) {
+      if(favorites.includes(id)) {
+        for( var i = 0; i < favorites.length; i++){ 
+          if ( favorites[i] === id) {
+            favorites.splice(i, 1); 
+          }
+       }
+      } else {
+        favorites.push(id);
+      }
+    }
+
+    setFavorites(favorites);
+    localStorage.setItem("favorites", favorites);
   }
 
   return (
     <div id="root">
 	  	<div className="favorites_menu">
-	  		<Link to="/favorites">
-				<FontAwesomeIcon icon={faHeart} /><span>Favoritos</span>		
-			</Link>
+	  		<Link to={{
+          pathname: '/favorites',
+          state: favorites
+        }}>
+				  <FontAwesomeIcon icon={faHeart} /><span>Favoritos</span>		
+		  	</Link>
 	  	</div>
 
       <div className="header">
-        <h1>OMDd API</h1>
+        <Link className="link-tag" to="/"><h1>OMDd API</h1></Link>
         <form id="search_movie" onSubmit={(e) => onSubmit(e)}>
           <label>Nome do filme: </label>
           <input name="movie_name" type="text" onKeyDown={(e) => handleFormSubmit(e)} />

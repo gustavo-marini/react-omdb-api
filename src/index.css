@@ -123,3 +123,8 @@ code {
   font-weight: 600;
   font-family: 'Open Sans', sans-serif;
 }
+
+.link-tag{
+  color: inherit;
+  text-decoration: none;
+}
