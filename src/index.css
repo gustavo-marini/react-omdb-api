@@ -58,7 +58,7 @@ code {
   position: relative;
 }
 
-.list_movies .list .movie:hover svg{
+.list_movies .list .movie:hover svg, .list_movies .list .movie:hover .compare-movie{
   opacity: 1;
   visibility: visible;
 }
@@ -75,9 +75,20 @@ code {
   font-size: 25px;
 }
 
-.list_movies .list .movie img{
+.list_movies .list .movie img.poster{
   width: 100%;
   object-fit: cover;
+}
+
+.list_movies .list .movie .compare-movie{
+  position: absolute;
+  top: 4px;
+  width: 40px;
+  right: 45px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s all ease-in-out;
 }
 
 .list_movies .list .movie .movie_info{
